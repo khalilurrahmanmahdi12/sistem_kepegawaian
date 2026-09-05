@@ -253,7 +253,10 @@ export default function Login() {
                 </button>
 
               
+<<<<<<< HEAD
                 </div>
+=======
+>>>>>>> fe51634 (Fix Vercel SPA routing)
               </>
             ) : (
               <>
@@ -371,12 +374,7 @@ export default function Login() {
                   Ganti email atau nomor WhatsApp
                 </button>
 
-                <p className="mt-6 text-center text-xs text-slate-400">
-                  Untuk demo gunakan OTP{' '}
-                  <span className="font-semibold text-slate-700">
-                    123456
-                  </span>
-                </p>
+                
               </>
             )}
           </div>
