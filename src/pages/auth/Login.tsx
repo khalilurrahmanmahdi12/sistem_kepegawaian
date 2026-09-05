@@ -252,25 +252,7 @@ export default function Login() {
                   Kirim Kode OTP
                 </button>
 
-                {/* Demo */}
-                <div className="mt-8 border-t border-slate-200 pt-6">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    Akun Demo
-                  </p>
-
-                  <div className="mt-3 grid gap-2 text-xs text-slate-500 sm:grid-cols-2">
-                    <p>admin@perusahaan.com</p>
-                    <p>hr@perusahaan.com</p>
-                    <p>manager@perusahaan.com</p>
-                    <p>karyawan@perusahaan.com</p>
-                  </div>
-
-                  <p className="mt-4 text-xs text-slate-500">
-                    Kode OTP demo:{' '}
-                    <span className="font-bold text-slate-900">
-                      123456
-                    </span>
-                  </p>
+              
                 </div>
               </>
             ) : (
