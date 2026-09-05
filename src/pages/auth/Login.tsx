@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+
 import {
   Mail,
   ShieldCheck,
   Smartphone,
   UsersRound,
 } from 'lucide-react'
+
 import { toast } from 'sonner'
 
 import { useAuth } from '../../context/AuthContext'
@@ -18,21 +20,41 @@ export default function Login() {
     verifikasiOtp,
   } = useAuth()
 
-  const [identifier, setIdentifier] = useState('')
-  const [otp, setOtp] = useState('')
-  const [otpSent, setOtpSent] = useState(false)
-  const [tujuanOtp, setTujuanOtp] = useState('')
+  const [
+    identifier,
+    setIdentifier,
+  ] = useState('')
+
+  const [
+    otp,
+    setOtp,
+  ] = useState('')
+
+  const [
+    otpSent,
+    setOtpSent,
+  ] = useState(false)
+
+  const [
+    tujuanOtp,
+    setTujuanOtp,
+  ] = useState('')
 
   const handleKirimOtp = () => {
     if (!identifier.trim()) {
-      toast.error('Masukkan email atau nomor WhatsApp.')
+      toast.error(
+        'Masukkan email atau nomor WhatsApp.'
+      )
       return
     }
 
-    const user = kirimOtp(identifier)
+    const user =
+      kirimOtp(identifier)
 
     if (!user) {
-      toast.error('Email atau nomor WhatsApp tidak terdaftar.')
+      toast.error(
+        'Email atau nomor WhatsApp tidak terdaftar.'
+      )
       return
     }
 
@@ -47,26 +69,36 @@ export default function Login() {
 
     setOtpSent(true)
 
-    toast.success('Kode OTP berhasil dikirim.')
+    toast.success(
+      'Kode OTP berhasil dikirim.'
+    )
   }
 
-  const handleVerifikasiOtp = () => {
-    if (otp.length !== 6) {
-      toast.error('Masukkan 6 digit kode OTP.')
-      return
+  const handleVerifikasiOtp =
+    () => {
+      if (otp.length !== 6) {
+        toast.error(
+          'Masukkan 6 digit kode OTP.'
+        )
+        return
+      }
+
+      const berhasil =
+        verifikasiOtp(otp)
+
+      if (!berhasil) {
+        toast.error(
+          'Kode OTP tidak valid.'
+        )
+        return
+      }
+
+      toast.success(
+        'Login berhasil.'
+      )
+
+      navigate('/dashboard')
     }
-
-    const berhasil = verifikasiOtp(otp)
-
-    if (!berhasil) {
-      toast.error('Kode OTP tidak valid.')
-      return
-    }
-
-    toast.success('Login berhasil.')
-
-    navigate('/dashboard')
-  }
 
   const handleKembali = () => {
     setOtpSent(false)
@@ -77,9 +109,7 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-slate-100">
       <div className="grid min-h-screen lg:grid-cols-2">
-        {/* ========================================
-            BAGIAN KIRI
-        ======================================== */}
+        {/* BAGIAN KIRI */}
         <div className="relative hidden overflow-hidden bg-[#020617] lg:flex lg:flex-col">
           {/* Brand */}
           <div className="px-12 pt-12 xl:px-16 xl:pt-14">
@@ -128,14 +158,13 @@ export default function Login() {
           {/* Footer kiri */}
           <div className="px-12 pb-10 xl:px-16">
             <p className="text-xs text-slate-500">
-              Kepegawaian Digital • Sistem simulasi untuk portofolio
+              Kepegawaian Digital • Sistem simulasi untuk
+              portofolio
             </p>
           </div>
         </div>
 
-        {/* ========================================
-            BAGIAN KANAN
-        ======================================== */}
+        {/* BAGIAN KANAN */}
         <div className="flex min-h-screen items-center justify-center bg-slate-100 px-6 py-10 sm:px-10 lg:px-16">
           <div className="w-full max-w-md">
             {/* Logo mobile */}
@@ -202,10 +231,15 @@ export default function Login() {
                       type="text"
                       value={identifier}
                       onChange={(event) =>
-                        setIdentifier(event.target.value)
+                        setIdentifier(
+                          event.target.value
+                        )
                       }
                       onKeyDown={(event) => {
-                        if (event.key === 'Enter') {
+                        if (
+                          event.key ===
+                          'Enter'
+                        ) {
                           handleKirimOtp()
                         }
                       }}
@@ -234,7 +268,9 @@ export default function Login() {
 
                 <button
                   type="button"
-                  onClick={handleKirimOtp}
+                  onClick={
+                    handleKirimOtp
+                  }
                   className="
                     mt-6
                     h-12
@@ -251,18 +287,10 @@ export default function Login() {
                 >
                   Kirim Kode OTP
                 </button>
-
-              
-<<<<<<< HEAD
-                </div>
-=======
->>>>>>> fe51634 (Fix Vercel SPA routing)
               </>
             ) : (
               <>
-                {/* ========================================
-                    VERIFIKASI OTP
-                ======================================== */}
+                {/* VERIFIKASI OTP */}
                 <div className="mb-10">
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950 text-white">
                     <ShieldCheck
@@ -303,11 +331,17 @@ export default function Login() {
                     value={otp}
                     onChange={(event) =>
                       setOtp(
-                        event.target.value.replace(/\D/g, '')
+                        event.target.value.replace(
+                          /\D/g,
+                          ''
+                        )
                       )
                     }
                     onKeyDown={(event) => {
-                      if (event.key === 'Enter') {
+                      if (
+                        event.key ===
+                        'Enter'
+                      ) {
                         handleVerifikasiOtp()
                       }
                     }}
@@ -337,7 +371,9 @@ export default function Login() {
 
                 <button
                   type="button"
-                  onClick={handleVerifikasiOtp}
+                  onClick={
+                    handleVerifikasiOtp
+                  }
                   className="
                     mt-6
                     h-12
@@ -357,7 +393,9 @@ export default function Login() {
 
                 <button
                   type="button"
-                  onClick={handleKembali}
+                  onClick={
+                    handleKembali
+                  }
                   className="
                     mt-3
                     h-11
@@ -373,8 +411,6 @@ export default function Login() {
                 >
                   Ganti email atau nomor WhatsApp
                 </button>
-
-                
               </>
             )}
           </div>
