@@ -15,7 +15,7 @@ Project ini dikembangkan sebagai **prototype sistem manajemen sumber daya manusi
 
 🚀 Live Demo
 
-🌐 *Demo** 
+🌐 *Demo* 
 https://sistem-kepegawaian-chi.vercel.app/
 
 💻 *Repository* 
