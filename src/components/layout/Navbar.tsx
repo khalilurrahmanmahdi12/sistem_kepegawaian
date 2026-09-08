@@ -66,9 +66,7 @@ export default function Navbar({
         </button>
 
         <div className="min-w-0">
-          <p className="truncate text-xs font-medium text-slate-500 sm:text-sm">
-            Selamat datang,
-          </p>
+         
 
           <h2 className="truncate text-sm font-bold text-slate-900 sm:text-base">
             {user.nama}
